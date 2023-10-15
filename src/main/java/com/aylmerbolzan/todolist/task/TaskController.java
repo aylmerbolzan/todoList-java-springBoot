@@ -57,13 +57,24 @@ private ITaskRepository taskRepository;
         }
 
     @PutMapping("/{id}")
-    public TaskModel update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id) {
-        var idUser = request.getAttribute("idUser");
+    public ResponseEntity update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id) {
+
         var task = this.taskRepository.findById(id).orElse(null);
+        var idUser = request.getAttribute("idUser");
+        
+        if(task == null) {
+               return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+               .body("Tarefa não encontrada");
+        }
+        
+        if (!task.getIdUser().equals(idUser)) {
+               return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+               .body("Você não tem permissão para alterar esta tarefa");
+        }
 
         Utils.copyNonNullProperties(taskModel, task);
-
-        return this.taskRepository.save(task);
+        var taskUpdated = this.taskRepository.save(task);
+        return ResponseEntity.ok().body(taskUpdated);
     }
 
 }
