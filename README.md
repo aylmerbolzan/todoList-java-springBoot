@@ -1,23 +1,22 @@
 <div style="text-align:center">
 
-[![img](/assets/header.png)](https://github.com/rocketseat-education)
+# To-do List - Java/Spring Boot</div>
 
-# ToDoList - Java/Spring Boot</div>
+O projeto consiste no desenvolvimento do backend de uma API para uma aplicação de lista de tarefas (To-do List). Esta API permite operações como:
 
-Curso gratuito de Java oferecido pela [Rocketseat](https://github.com/rocketseat-education), entre os dias 9 e 13 de Outubro de 2023.
+- Cadastro de usuários
+- Registro de tarefas associadas a esses usuários
+- Listagem de tarefas e
+- Modificação das tarefas conforme o usuário.
 
-O projeto é o backend de uma API de uma ToDoList, onde é possível cadastrar um usuário, cadastrar tarefas relacionadas ao usuário, listar e alterar as tarefas por usuário.
-
-Algumas das tecnologias e recursos utilizados foram Java, SpringBoot, H2Database, Lombok, entre outros.
-
-A API está disponível no endereço https://todolist-m9qj.onrender.com/
+As tecnologias e recursos empregados durante o desenvolvimento incluem Java, SpringBoot, H2Database, Lombok, e outras ferramentas.
 
 
 ## HTTP Requests
 
 ### Create User
 
-> POST: https://todolist-m9qj.onrender.com/users/
+> **POST**: https://todolist-m9qj.onrender.com/users/
 
 ```
 {
@@ -30,30 +29,33 @@ A API está disponível no endereço https://todolist-m9qj.onrender.com/
 
 ### Create Task
 
-> POST: https://todolist-m9qj.onrender.com/tasks/
+> **POST**: https://todolist-m9qj.onrender.com/tasks/
 
 ```
 {
-    "description": "Montar README.md do projeto 'ToDoList - Java/Spring Boot'",
-    "title": "ToDoList - Java",
+    "description": "Montar README.md do projeto 'To-do List - Java/Spring Boot'",
+    "title": "To-do List - Java",
     "priority": "ALTA",
     "startAt": "2023-10-20T08:00:00",
     "endAt": "2023-10-21T12:00:00"
 }
 
 ```
+*`• Necessário autenticar o usuário.`*
 
 ### Update Task
 
-> PUT: https://todolist-m9qj.onrender.com/tasks/{id}
+> **PUT**: https://todolist-m9qj.onrender.com/tasks/{id}
 
 ```
 {
-    "title": "Todolist - Java & RocketSeat"
+    "title": "To-do List - Java & SpringBoot"
 }
-
 ```
+*`• Necessário autenticar o usuário.`*
 
 ### Get Tasks List
 
-> GET: https://todolist-m9qj.onrender.com/tasks/
+> **GET**: https://todolist-m9qj.onrender.com/tasks/
+
+*`• Necessário autenticar o usuário.`*
