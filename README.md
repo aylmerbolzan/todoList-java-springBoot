@@ -1,6 +1,4 @@
-<div style="text-align:center">
-
-# To-do List - Java/Spring Boot</div>
+# To-do List - Java/Spring Boot
 
 O projeto consiste no desenvolvimento do backend de uma API para uma aplicação de lista de tarefas (To-do List). Esta API permite operações como:
 
